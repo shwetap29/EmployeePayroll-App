@@ -121,7 +121,6 @@ label {
     margin-left: 12px;
 }
 
-/* UC-5 */
 .select {
     padding: 10px;
     border: 1px solid #ccc;
@@ -140,7 +139,6 @@ label {
     margin-top: 20px;
 }
 
-/* UC-6 */
 .button{
     font-size: 20px;
     font-family: Roboto;
@@ -170,7 +168,7 @@ label {
     text-align: center;
 }
 
-error-output{
+error-output {
     margin-left: 10px;
     font-size: 12px;
     font-style: italic;
@@ -194,19 +192,15 @@ error-output{
    .form{
        margin-top: 10px;
    } 
-
    .row{
        flex-direction: column;
    }
-
    .uploadbutton{
        justify-content: flex-start;
    }
-
-   .profile-radio-content {
+   .profile-radio-button {
        flex-flow: wrap;
-   }
-    
+   } 
    .submit-reset {
        width: 100%;
        display: flex;
@@ -223,7 +217,6 @@ error-output{
        flex-direction: column-reverse;
        align-items: flex-start;
    }
-   /* UC7 */
    .profile-radio-content{
        flex-flow: wrap;
    }

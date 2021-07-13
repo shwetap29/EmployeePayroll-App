@@ -4,11 +4,11 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap ">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="../css/employeepayrollform.css">
-        <title>Employee payroll form</title>
-        <script src="\js\payroll_form.js"></script>
-        <script src="\js\new_payrollform.js"></script>
+        <title>Employee payroll Form</title>
+        <script src="../js/payroll_form.js"></script>
+        <script src="../js/new_payrollform.js"></script>
       </head>
 
     <body>
@@ -22,14 +22,14 @@
           </div>
         </header>
 
-        <div id="formId" class="form-content">
-          <form class="form" action="#" onsubmit="save();return false">
+        <div class="form-content">
+          <form class="form" action="#" onsubmit="save()">
             <div class="form-head"> Employee payroll form </div>
           <div class="row-content">
             <label class="label text" for="name">Name</label>
             <input class="input" type="text" id="name" name="name" 
             placeholder="Enter Your name" required>
-          <error-output class="text-error" for="text"></error-output>
+          <error-output class="name-error" for="name"></error-output>
           </div>
           <div class="row-content">
             <label class="label text" for="profile">Profile Image</label>
@@ -84,7 +84,7 @@
                   <output class="salary-output text" for="salary">400000</output>
               </div>
               <div class="row-content">
-                <label class="label text" for="startDate">startDate</label>
+                <label class="label text" for="startDate">start Date</label>
               </div>
               <select name="Day" id="Day">
                 <option value="1">1</option>
