@@ -121,7 +121,7 @@ label {
     margin-left: 12px;
 }
 
-.select {
+select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
