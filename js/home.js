@@ -1,8 +1,19 @@
+let employeePayrollList;
 window.addEventListener('DOMContentLoaded', () => {
+    employeePayrollList = getEmployeePayrollDataFromStorage();
+    document.querySelector(".emp-count").textContent = employeePayrollList.length;
     createInnerHtml();
 });
 
+const getEmployeePayrollDataFromStorage = () => {
+    return localStorage.getItem('EmployeePayrollList') ? 
+                    JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
+
 const createInnerHtml = () => {
+    
+    if(employeePayrollList.length == 0 ) return;
+
     const headerHtml = `<tr>
     <th></th>
     <th>Name</th>
@@ -12,8 +23,8 @@ const createInnerHtml = () => {
     <th>Start Date</th>
     <th>Actions</th>
     </tr>`;
+  
     let innerHtml = `${headerHtml}`;
-    let employeePayrollList = createEmployeePayrollJson();
     for(const employeePayrollData of employeePayrollList){
         innerHtml = `${innerHtml}
         <tr>
@@ -24,8 +35,10 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._salary}</td>
             <td>${employeePayrollData._startDate}</td>
             <td>
-                <img name="${employeePayrollData._id}" onclick="remove()" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-                <img name="${employeePayrollData._id}" onclick="update()" alt="edit" src="../assets/icons/create-black-18dp.svg">
+                <img name="${employeePayrollData._id}" onclick="remove()" alt="delete" 
+                src="../assets/icons/delete-black-18dp.svg">
+                <img name="${employeePayrollData._id}" onclick="update()" alt="edit" 
+                src="../assets/icons/create-black-18dp.svg">
             </td>
     </tr>`;
     }
@@ -40,35 +53,11 @@ const getDeptHtml = (deptList) => {
     return deptHtml;
 }
 
-const createEmployeePayrollJson = () => {
-    let employeePayrollListLocal = [
-        {
-            _name: 'Raechel Green',
-            _gender: 'Female',
-            _department: [
-                'HR',
-                'Finance'
-            ],
-            _salary: '380000',
-            _startDate: '29 Oct 2020',
-            _note: 'This is Raechel',
-            _id: new Date().getTime(),
-            _profilePic: '../assets/profile-images/Ellipse -1.png'
-        },
-        {
-            _name: 'Ross Gellar',
-            _gender: 'Male',
-            _department: [
-                'Engineering',
-                'Finance'
-            ],
-            _salary: '400000',
-            _startDate: '9 Oct 2020',
-            _note: 'This is Ross',
-            _id: new Date().getTime(),
-            _profilePic: '../assets/profile-images/Ellipse -3.png'
-        }
-    ];
-
-    return employeePayrollListLocal;
+const formatDate = (date) => {
+    let startDate = new Date(date);
+    const options = {
+        year: 'numeric', month: 'long', day: 'numeric'
+    };
+    const empDate = !startDate ? "undefined" : startDate.toLocaleDateString("en-IN", options);
+    return empDate;
 }
