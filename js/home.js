@@ -3,12 +3,12 @@ window.addEventListener('DOMContentLoaded', () => {
     employeePayrollList = getEmployeePayrollDataFromStorage();
     document.querySelector(".emp-count").textContent = employeePayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp')
 });
 
 const getEmployeePayrollDataFromStorage = () => {
     return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
 }
-
 const createInnerHtml = () => {
     const headerHtml = `<tr>
     <th></th>
@@ -19,8 +19,12 @@ const createInnerHtml = () => {
     <th>Start Date</th>
     <th>Actions</th>
     </tr>`;
-  if(employeePayrollList.length==0) return;
+    if(employeePayrollList.length==0) return;
     let innerHtml = `${headerHtml}`;
+    if(employeePayrollList.length==0) {
+        document.querySelector('#table-display').innerHTML = innerHtml;
+        return;
+    }
     for(const employeePayrollData of employeePayrollList){
         innerHtml = `${innerHtml}
         <tr>
@@ -29,12 +33,10 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._gender}</td>
             <td>${getDeptHtml(employeePayrollData._department)}</td>
             <td>${employeePayrollData._salary}</td>
-            <td>${employeePayrollData._startDate}</td>
+            <td>${stringifyDate(employeePayrollData._startDate)}</td>
             <td>
-                <img id="${employeePayrollData._id}" onclick="remove(this)" alt="delete" 
-                src="../assets/icons/delete-black-18dp.svg">
-                <img id="${employeePayrollData._id}" onclick="update(this)" alt="edit" 
-                src="../assets/icons/create-black-18dp.svg">
+                <img id="${employeePayrollData._id}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+                <img id="${employeePayrollData._id}" onclick="update(this)" alt="edit" src="../assets/icons/create-black-18dp.svg">
             </td>
     </tr>`;
     }
@@ -60,5 +62,3 @@ const remove = (node) => {
     document.querySelector(".emp-count").textContent = employeePayrollList.length;
     createInnerHtml();
 }
-
-localStorage.removeItem("id");
