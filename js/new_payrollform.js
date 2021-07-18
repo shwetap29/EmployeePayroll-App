@@ -1,5 +1,6 @@
 let isUpdate = false;
 let employeePayrollObj = {};
+
 window.addEventListener('DOMContentLoaded', () => {
     const name = document.querySelector("#name");
     name.addEventListener("input", function () {
@@ -11,9 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
             (new EmployeePayrollData()).name = name.value;
             setTextValue('.name-error', "");
         } catch (error) {
-            setTextValue('.name-error', error);
+            setTextValue('.name-error', "");
         }
     });
+
     const date = document.querySelector(".startDate");
     date.addEventListener("input", function () {
         const startDate = new Date(getInputValueById("#year") + " " + getInputValueById("#month") + " " + getInputValueById("#day"));
@@ -24,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
             setTextValue('.date-error', error);
         }
     });
+
     const salary = document.querySelector('#salary');
     const output = document.querySelector('.salary-output');
     output.textContent = salary.value;
@@ -33,12 +36,15 @@ window.addEventListener('DOMContentLoaded', () => {
     checkForUpdate();
 });
 
-const save = () => {
+const save = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     try {
         setEmployeePayrollObject();
         createAndUpdateStorage();
         resetForm();
-    } catch (error) {
+        window.location.replace(site_properties.home_page);
+    } catch (e) {
         return;
     }
 }
@@ -148,7 +154,7 @@ const setValue = (id, value) => {
 
 const createNewEmployeeId = () => {
     let empID = localStorage.getItem("EmployeeID");
-    empID = !empID ? 1 : (parseInt(empID) + 1).toString();
+    empID = !empID ? 1 : (parseInt(empID)+ 1).toString();
     localStorage.setItem("EmployeeID", empID);
     return empID;
 }
@@ -169,7 +175,7 @@ const setForm = () => {
     setValue('#salary', employeePayrollObj._salary);
     setValue('.salary-output', employeePayrollObj._salary);
     setValue('#notes', employeePayrollObj._notes);
-    let date = formatDate(employeePayrollObj._startDate).split(" ");
+    let date = stringifyDate(employeePayrollObj._startDate).split(" ");
     setValue('#day', date[0]);
     setValue('#month', date[1]);
     setValue('#year', date[2]);
