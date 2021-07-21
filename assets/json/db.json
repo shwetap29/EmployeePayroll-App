@@ -36,6 +36,31 @@
       "_note": "",
       "_profilePic": "../assets/profile-images/Ellipse -1.png",
       "id": 3
+    },
+    {
+      "id": "15",
+      "_name":"Sara Singh",
+      "_profilePic": "../assets/profile-images/Ellipse -1.png",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "500000",
+      "_notes": "",
+      "_startDate": "2020-07-14T18:30:00.000Z"
+    },
+    { "id": "21",
+      "_name":"Sara Singh",
+      "_profilePic": "../assets/profile-images/Ellipse -1.png",
+      "_gender": "female",
+      "_department": [
+        "Sales",
+        "Engineer",
+        "Others"
+      ],
+      "_salary": "500000",
+      "_notes": "Sara works for multiple departments",
+      "_startDate": "2021-07-10T18:30:00.000Z"
     }
   ]
 }

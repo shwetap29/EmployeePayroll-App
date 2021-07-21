@@ -53,7 +53,9 @@ const getDeptHtml = (deptList) => {
 const remove = (node) => {
     let employeePayrollData = employeePayrollList.find(emp => emp.id == node.id);
     if(!employeePayrollData) return;
-    const index = employeePayrollList.map(emp => emp.id).indexOf(employeePayrollData.id);
+    const index = employeePayrollList
+                    .map(emp => emp.id)
+                    .indexOf(employeePayrollData.id);
     employeePayrollList.splice(index,1);
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
     document.querySelector(".emp-count").textContent = employeePayrollList.length;
