@@ -1,66 +1,52 @@
 {
-  "EmployeePayrollDB": [
+  "employee": [
     {
-      "id": 1,
-      "_name": "Robert",
-      "_gender": "male",
-      "_department": [
-        "Engineering",
-        "Finance"
+      "name": "mohit kumar new",
+      "gender": "male",
+      "departMent": [
+        "HR"
       ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
-      "_note": "All In One",
-      "_profilePic": "../assets/profile-images/Ellipse -3.png"
+      "salary": "30000",
+      "startDate": "1 Jan 2020",
+      "notes": "",
+      "id": 1604589551457,
+      "profileUrl": "../assets/profile-images/Ellipse 1.png"
     },
     {
-      "id": 2,
-      "_name": "Bill Gates",
-      "_gender": "male",
-      "_department": [
-        "Engineering"
+      "name": "mohit kumar test",
+      "gender": "male",
+      "departMent": [
+        "HR"
       ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
-      "_note": "Terrific Engineer",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png"
+      "salary": "30000",
+      "startDate": "1 Jan 2020",
+      "notes": "",
+      "id": 1604589594363,
+      "profileUrl": "../assets/profile-images/Ellipse 1.png"
     },
     {
-      "_name": "Amarpa Shashanka Keerthi Kumar",
-      "_gender": "female",
-      "_department": [
-        "Sales"
+      "name": "mohit",
+      "gender": "male",
+      "departMent": [
+        "HR"
       ],
-      "_salary": "400000",
-      "_startDate": "29 Oct 2019",
-      "_note": "",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png",
-      "id": 3
+      "salary": "30000",
+      "startDate": "1 Jan 2020",
+      "notes": "",
+      "id": 1604589699566,
+      "profileUrl": "../assets/profile-images/Ellipse -3.png"
     },
     {
-      "id": "15",
-      "_name":"Sara Singh",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png",
-      "_gender": "female",
-      "_department": [
-        "Sales"
+      "name": "test",
+      "gender": "male",
+      "departMent": [
+        "HR"
       ],
-      "_salary": "500000",
-      "_notes": "",
-      "_startDate": "2020-07-14T18:30:00.000Z"
-    },
-    { "id": "21",
-      "_name":"Sara Singh",
-      "_profilePic": "../assets/profile-images/Ellipse -1.png",
-      "_gender": "female",
-      "_department": [
-        "Sales",
-        "Engineer",
-        "Others"
-      ],
-      "_salary": "500000",
-      "_notes": "Sara works for multiple departments",
-      "_startDate": "2021-07-10T18:30:00.000Z"
+      "salary": "30000",
+      "startDate": "1 Jan 2020",
+      "notes": "",
+      "id": 1604589731061,
+      "profileUrl": "../assets/profile-images/Ellipse -3.png"
     }
   ]
 }

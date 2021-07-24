@@ -33,9 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
     checkForUpdate();
 });
 
-const save = (event) => {
-    event.preventDefault();
-    event.stopPopagation();
+const save = () => {
     try {
         setEmployeePayrollObject();
         createAndUpdateStorage();
@@ -46,9 +44,7 @@ const save = (event) => {
 }
 
 const setEmployeePayrollObject = () => {
-    if(!isUpdate && site_properties.use_local_storage.match("true")){
-        employeePayrollObj.id = createNewEmployeeId();
-    }
+    if(!isUpdate) employeePayrollObj.id = createNewEmployeeId();
     employeePayrollObj._name = getInputValueById("#name");
     employeePayrollObj._profilePic = getSelectedValues("[name = profile]").pop();
     employeePayrollObj._gender = getSelectedValues("[name = gender]").pop();
@@ -65,12 +61,10 @@ const createAndUpdateStorage = () => {
         if (!employeePayrollData) {
             employeePayrollList.push(employeePayrollObj);
         } else {
-            const index = employeePayrollList
-            .map(emp => emp.id)
-            .indexOf(employeePayrollObj);
-        employeePayrollList.splice(index, 1, employeePayrollObj);
+            const index = employeePayrollList.map(emp => emp.id).indexOf(employeePayrollObj);
+            employeePayrollList.splice(index, 1, employeePayrollObj);
         }
-    } 
+    }
     else {
         employeePayrollList = [employeePayrollObj];
     }
